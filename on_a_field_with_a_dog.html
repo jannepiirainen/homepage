@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doge</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body style="background-image:url('sougen.jpg');">
+    <div id="app">
+        <div class="header"><transition><h1>{{ headerText }}</h1></transition></div>
+        <button v-on:click="suchWow">Not a normal dog.</button>
+
+        <div><transition><img class="image" v-if="dogeVisible" src="shiba.png" alt=""></transition></div>
+    </div>
+
+    <audio id="wow" src="wow.mp3" preload="auto"></audio>
+
+    <script>
+
+        var wowSound = document.getElementById("wow");
+
+        new Vue({
+            el:'#app',
+            data: {
+                dogeVisible: true,
+                headerText: "I came to the field with my dog.",
+                count: 0
+            },
+            methods: {
+                suchWow: function() {
+                    if(this.dogeVisible == true) {
+                        this.dogeVisible = false
+                        if(this.count == 0) {
+                            this.headerText = "But my dog disappeared."
+                            this.count++
+                        } else if(this.count == 9) {
+                            this.headerText = "I am tired of this dog."
+                            this.count++
+                        } else if(this.count == 20) {
+                            this.headerText = "GOD DAMN YOU DOG!"
+                            this.count++
+                        } else {
+                            this.headerText = "and disappeared..."
+                            this.count++
+                        }
+                        wowSound.play();
+                    } else {
+                        this.dogeVisible = true
+                        if(this.count == 12) {
+                            this.headerText = "We are going home NOW!"
+                        } else {
+                            this.headerText = "But then it came back again."
+                        }
+                    }
+                    
+                }
+            }
+        })
+    </script>
+    
+</body>
+</html>
