@@ -1,0 +1,6 @@
+em {
+    /*font-size: 72px;*/
+    background: -webkit-linear-gradient(rgb(248, 163, 4), rgb(119, 2, 197));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
